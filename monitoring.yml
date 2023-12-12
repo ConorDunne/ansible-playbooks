@@ -4,6 +4,9 @@
   hosts: all
   gather_facts: yes
   tasks:
+    - name: Get Hostname
+      shell: hostname 
+      register: hostname
     - name: Gather CPU usage
       shell: top -bn1 | grep 'Cpu(s)' | awk '{print $2}'
       register: cpu_usage
